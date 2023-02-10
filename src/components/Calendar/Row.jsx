@@ -5,7 +5,7 @@ export default ({ times }) => {
     <tbody>
       {[0].concat(times).map((time, index) =>
         index === 0 ? (
-          <tr key={time.hour}>
+          <tr key={time.hour + new Date().getTime()}>
             <td key={index + time.hour}></td>
           </tr>
         ) : (
