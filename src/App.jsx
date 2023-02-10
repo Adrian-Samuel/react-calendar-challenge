@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import CalendarBody from "./components/Calendar/CalendarBody";
-import CalendarForm from './components/Calendar/Form'
+import CalendarForm from "./components/Calendar/Form";
 import "./App.css";
 
 function App() {
-
   // state should be declared at the parent level,
   // could use useContext with a reducer but there's little point
 
+  const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  const SHIFT_LENGTH = 8;
+  const startHour = new Date(new Date().setHours(9, 0, 0, 0)).getHours();
+
+  const times = [
+    startHour,
+    ...Array.from({ length: SHIFT_LENGTH }, (calendarTime, index) => {
+      const hourDiff = index + 1;
+      return new Date(
+        new Date().setHours(startHour + hourDiff, 0, 0, 0)
+      ).getHours();
+    }),
+  ].map((hour) => ({
+    hour: hour,
+    eventTimes: [],
+  }));
+
+  const [calendar, setCalendar] = useState(times);
+
   return (
     <div className="App">
-      <CalendarBody />
-      <CalendarForm />
+      <CalendarBody daysOfWeek={daysOfWeek} calendar={calendar} />
+      <CalendarForm days={daysOfWeek} times={times} addEvent={setCalendar} />
     </div>
   );
 }
