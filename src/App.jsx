@@ -11,6 +11,8 @@ function App() {
   const SHIFT_LENGTH = 8;
   const startHour = new Date(new Date().setHours(9, 0, 0, 0)).getHours();
 
+  const formatDateTime = hour => `${hour}:00`
+
   const times = [
     startHour,
     ...Array.from({ length: SHIFT_LENGTH }, (calendarTime, index) => {
@@ -20,7 +22,7 @@ function App() {
       ).getHours();
     }),
   ].map((hour) => ({
-    hour: hour,
+    hour: formatDateTime(hour),
     eventTimes: [],
   }));
 
