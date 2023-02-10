@@ -1,10 +1,11 @@
 import React from "react";
 
-export default (times, days, addEvent) => {
+export default ({times, days, addEvent}) => {
 
     const handleEventSubmission = (e) => {
             e.preventDefault()
             // addEvent() TODO: add event logic later
+            // TODO: send object like {day:"Monday", time:"9:00", "eventName":"name"}
     }
 
   return (
@@ -38,7 +39,7 @@ export default (times, days, addEvent) => {
         <p>
             <button
                 onClick={handleEventSubmission}
-            ></button>
+            >Add</button>
         </p>
       </section>
 
