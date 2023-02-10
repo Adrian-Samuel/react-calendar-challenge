@@ -1,15 +1,14 @@
 import React from "react";
-import { daysOfWeek } from "../../utils/constants";
 
 export default () => {
+  const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
   return (
     <thead>
       <tr>
-        {[].concat(
-          daysOfWeek.map((day, idx) => {
-            <th>{idx === 0? day: null}</th>;
-          })
-        )}
+        {["BLANK"].concat(daysOfWeek).map((day, idx) => (
+          <th key={idx}>{idx > 0 ? day : null}</th>
+        ))}
       </tr>
     </thead>
   );
