@@ -1,6 +1,4 @@
 const SHIFT_LENGTH = 8;
-const GAP = 1;
-
 const startHour = new Date(new Date().setHours(9, 0, 0, 0)).getHours();
 
 const hoursInDay = [
@@ -15,4 +13,4 @@ const hoursInDay = [
 
 const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
-module.exports = { GAP, hoursInDay, daysOfWeek };
+module.exports = { hoursInDay, daysOfWeek };

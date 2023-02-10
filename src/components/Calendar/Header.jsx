@@ -1,13 +1,13 @@
 import React from "react";
-import { daysOfWeek, GAP } from "../../utils/constants";
+import { daysOfWeek } from "../../utils/constants";
 
 export default () => {
   return (
     <thead>
       <tr>
-        {[GAP].concat(
-          daysOfWeek.map((day) => {
-            <th>{day}</th>;
+        {[].concat(
+          daysOfWeek.map((day, idx) => {
+            <th>{idx === 0? day: null}</th>;
           })
         )}
       </tr>
