@@ -1,17 +1,16 @@
 import React from "react";
 
-export default ({times, days, addEvent}) => {
-
-    const handleEventSubmission = (e) => {
-            e.preventDefault()
-            // addEvent() TODO: add event logic later
-            // TODO: send object like {day:"Monday", time:"9:00", "eventName":"name"}
-    }
+export default ({ times, days, addEvent }) => {
+  const handleEventSubmission = (e) => {
+    e.preventDefault();
+    // addEvent() TODO: add event logic later
+    // TODO:send object like {day:"Monday", time:"9:00", "eventName":"name"}
+  };
 
   return (
     <form>
       <h3>Add Event </h3>
-      <label>
+      <label htmlFor="name">
         Name
         <input type="text" />
       </label>
@@ -25,24 +24,21 @@ export default ({times, days, addEvent}) => {
           ))}
         </select>
       </label>
-      <label for="time">
+      <label htmlFor="time">
         Time
         <select name="time">
           {times.map((time, idx) => (
-            <option key={idx} value={time}>
-              {time}
+            <option key={idx} value={time.hour}>
+              {time.hour}
             </option>
           ))}
         </select>
       </label>
       <section>
         <p>
-            <button
-                onClick={handleEventSubmission}
-            >Add</button>
+          <button onClick={handleEventSubmission}>Add</button>
         </p>
       </section>
-
     </form>
   );
 };
