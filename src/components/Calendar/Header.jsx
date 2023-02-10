@@ -1,7 +1,6 @@
 import React from "react";
 
-export default () => {
-  const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+export default ({daysOfWeek}) => {
 
   return (
     <thead>

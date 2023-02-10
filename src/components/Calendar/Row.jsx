@@ -1,28 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default () => {
-  const SHIFT_LENGTH = 8;
-  const startHour = new Date(new Date().setHours(9, 0, 0, 0)).getHours();
+export default ({times}) => {
+ 
 
-  const times = [
-    startHour,
-    ...Array.from({ length: SHIFT_LENGTH }, (calendarTime, index) => {
-      const hourDiff = index + 1;
-      return new Date(
-        new Date().setHours(startHour + hourDiff, 0, 0, 0)
-      ).getHours();
-    }),
-  ].map((hour) => ({
-    hour: hour,
-    eventTimes: [],
-  }));
 
-  const [calendar, setCalendar] = useState(times) 
-  
   return (
-    
     <tbody>
-      {[0].concat(calendar).map((time, index) =>
+      {[0].concat(times).map((time, index) =>
         index === 0 ? (
           <tr key={time.hour}>
             <td key={index + time.hour}></td>
@@ -30,9 +14,10 @@ export default () => {
         ) : (
           <tr key={time.hour}>
             <td key={index + time.hour}>{time.hour}</td>
-            {time.events.map((event) => (
+            
+            {/* {time.eventTimes.map((event) => (
               <tr> {event} </tr>
-            ))}
+            ))} */}
           </tr>
         )
       )}
