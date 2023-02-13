@@ -8,7 +8,7 @@ import {
   startHour,
   formatDateTime,
   calendarState,
-} from "./utils/constants";
+} from "./utils/calendar_constants";
 function App() {
   const initialState = calendarState(
     startHour,
