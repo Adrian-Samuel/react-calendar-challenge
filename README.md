@@ -14,12 +14,11 @@ Schema
       "events": [{
         {
           "name":"Event Name",
-          "duration":1 // this can be used to dynamically set pixes on class for meetings that are more than 1 hour
+          "duration":1
         }
       }]
     }
   },
-  ...
 }
 ```
 
