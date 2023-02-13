@@ -1,37 +1,53 @@
 import React, { useState } from "react";
-import CalendarBody from "./components/Calendar/CalendarBody";
-import CalendarForm from "./components/Calendar/Form";
+import CalendarBody from "./components/Calendar/Calendar";
+import CalendarForm from "./components/Form/Form";
 import "./App.css";
-
+import {
+  daysOfWeek,
+  SHIFT_LENGTH,
+  startHour,
+  formatDateTime,
+  calendarState,
+} from "./utils/constants";
 function App() {
-  // state should be declared at the parent level,
-  // could use useContext with a reducer but there's little point
-
-  const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  const SHIFT_LENGTH = 8;
-  const startHour = new Date(new Date().setHours(9, 0, 0, 0)).getHours();
-
-  const formatDateTime = hour => `${hour}:00`
-
-  const times = [
+  const initialState = calendarState(
     startHour,
-    ...Array.from({ length: SHIFT_LENGTH }, (calendarTime, index) => {
-      const hourDiff = index + 1;
-      return new Date(
-        new Date().setHours(startHour + hourDiff, 0, 0, 0)
-      ).getHours();
-    }),
-  ].map((hour) => ({
-    hour: formatDateTime(hour),
-    eventTimes: [],
-  }));
+    SHIFT_LENGTH,
+    1,
+    daysOfWeek,
+    formatDateTime
+  );
 
-  const [calendar, setCalendar] = useState(times);
+  const [calendar, setCalendar] = useState(initialState);
+
+  const calendarHours = Object.keys(Object.values(calendar)[0]);
+  const calendarEventsByDay = Object.values(calendar);
+
+  const addCalendarEvent = (day, hour, event) => {
+    setCalendar((calendarEvents) => {
+      return {
+        ...calendarEvents,
+        [day]: {
+          ...calendarEvents[day],
+          [hour]: [...calendarEvents[day][hour], event],
+        },
+      };
+    });
+  };
 
   return (
     <div className="App">
-      <CalendarBody daysOfWeek={daysOfWeek} calendar={calendar} />
-      <CalendarForm days={daysOfWeek} times={times} addEvent={setCalendar} />
+      <CalendarBody
+        daysOfWeek={daysOfWeek}
+        calendarEvents={calendarEventsByDay}
+        calendarHours={calendarHours}
+        calendarDays={daysOfWeek}
+      />
+      <CalendarForm
+        daysOfWeek={daysOfWeek}
+        bookableHours={calendarHours}
+        addCalendarEvent={addCalendarEvent}
+      />
     </div>
   );
 }
