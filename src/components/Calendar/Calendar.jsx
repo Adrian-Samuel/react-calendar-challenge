@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TableHeaders from "./Header/Header";
 import TableRow from "./Row/Row";
-import './index.css'
+import "./index.css";
 export default ({ daysOfWeek, calendarEvents, calendarHours }) => {
   return (
     <table>

@@ -1,7 +1,7 @@
 table {
-    border-spacing: 0px;
+  border-spacing: 0px;
 }
 
 table > td {
-    width: 200px;
+  width: 200px;
 }

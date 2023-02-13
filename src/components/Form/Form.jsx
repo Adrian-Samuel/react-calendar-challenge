@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './index.css'
+import "./index.css";
 
 export default ({ daysOfWeek, bookableHours, addCalendarEvent }) => {
   const handleEventSubmission = (e) => {
@@ -16,23 +16,22 @@ export default ({ daysOfWeek, bookableHours, addCalendarEvent }) => {
 
   return (
     <div className="form_container">
-    <form>
-      <div>
-        <h3>Add Event </h3>
-      </div>
+      <form>
+        <div>
+          <h3>Add Event </h3>
+        </div>
 
-      <section>
-         <label htmlFor="name">Name</label>
-        
+        <section>
+          <label htmlFor="name">Name</label>
+
           <input
             value={eventName}
             onChange={(e) => setEventName(e.target.value)}
             type="text"
           />
-        
-      </section>
-      <section>
-        <label> Day </label>
+        </section>
+        <section>
+          <label> Day </label>
           <select
             value={selectedDay}
             onChange={(e) => setSelectedDay(e.target.value)}
@@ -44,10 +43,9 @@ export default ({ daysOfWeek, bookableHours, addCalendarEvent }) => {
               </option>
             ))}
           </select>
-       
-      </section>
-      <section>
-        <label htmlFor="time"> Time </label>
+        </section>
+        <section>
+          <label htmlFor="time"> Time </label>
           <select
             value={selectedTime}
             onChange={(e) => setSelectedTime(e.target.value)}
@@ -59,16 +57,15 @@ export default ({ daysOfWeek, bookableHours, addCalendarEvent }) => {
               </option>
             ))}
           </select>
-        
-      </section>
-      <section>
-        <p>
-          <button
-            className="form_button"
-          onClick={handleEventSubmission}>Add</button>
-        </p>
-      </section>
-    </form>
+        </section>
+        <section>
+          <p>
+            <button className="form_button" onClick={handleEventSubmission}>
+              Add
+            </button>
+          </p>
+        </section>
+      </form>
     </div>
   );
 };
