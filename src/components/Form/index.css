@@ -1,0 +1,56 @@
+.form_container {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 500px;
+}
+
+form > div > h3 {
+    text-align: left;
+    font-weight: 500;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+section > * {
+    color: black;
+    background-color: white;
+    padding: 2px;
+}  
+
+section > select, input {
+    font-size: 16px;
+    border: 0.2px solid rgb(236, 227, 227);
+    outline: none;
+}
+
+ option {
+    background-color:white;
+}
+
+label {
+    text-align: left;
+}
+
+form > section > p {
+    text-align: left;
+
+}
+
+.form_button {
+    background-color: rgb(13, 13, 170);
+    color: white;
+    border-radius: 1px;
+    height: 25px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 3px;
+    line-height: 3px;
+    width: 90px;
+}
