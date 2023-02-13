@@ -38,8 +38,15 @@ Example
     ....
   }
 }
+```
+
+## How To Run App
+
+```bash
+cd 
 
 ```
+
 
 ## Picture of outcome
 
