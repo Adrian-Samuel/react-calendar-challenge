@@ -13,8 +13,8 @@ Schema
     "hour": {
       "events": [{
         {
-          name:"Event Name",
-          duration:1 // this can be used to dynamically set pixes on class for meetings that are more than 1 hour
+          "name":"Event Name",
+          "duration":1 // this can be used to dynamically set pixes on class for meetings that are more than 1 hour
         }
       }]
     }
@@ -27,15 +27,20 @@ Example
 
 ```json
 {
-  "monday":{
-    "9:00":[
+  "tuesday":{
+    "9:00":[],
+    "11:00":[],
+    "12:00":[],
+    "13:00":[],
+    "14:00":[],
+    "15:00":[],
+    "16:00":[],
+    "17:00":[
       {
-        name: "Secret Valentine",
-        duration: 1,
+        "name": "Secret Valentine",
+        "duration": 1,
       }
-      ]
-    "10:00":[],
-    ....
+    ],
   }
 }
 ```
@@ -43,10 +48,8 @@ Example
 ## How To Run App
 
 ```bash
-cd 
-
+yarn install && yarn dev
 ```
-
 
 ## Picture of outcome
 
