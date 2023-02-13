@@ -1,10 +1,10 @@
 import React from "react";
-
+import './index.css'
 export default ({ daysOfWeek }) => {
   return (
     <thead>
       <tr>
-        {["BLANK"].concat(daysOfWeek).map((day, idx) => (
+        {["BLANK_HEADER"].concat(daysOfWeek).map((day, idx) => (
           <th key={idx}>{idx > 0 ? day : null}</th>
         ))}
       </tr>
